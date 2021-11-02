@@ -31,9 +31,9 @@
     <property name="geometry">
      <rect>
       <x>280</x>
-      <y>180</y>
+      <y>160</y>
       <width>251</width>
-      <height>151</height>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>350</y>
+      <y>340</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -129,6 +129,84 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonAttacker">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>160</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ATTACKER</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonNetwork">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>280</y>
+      <width>141</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>NETWORK SWITCH</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonMain">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>160</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>MAIN</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonECG">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>430</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ECG</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonEEG">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>430</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>EEG</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonSpO2">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>430</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>SpO2</string>
     </property>
    </widget>
   </widget>

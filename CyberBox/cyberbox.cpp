@@ -1,6 +1,12 @@
 #include "cyberbox.h"
 #include "ui_cyberbox.h"
 #include <QPixmap>
+#include "attackerdialog.h"
+#include "maindialog.h"
+#include "networkdialog.h"
+#include "ecgdialog.h"
+#include "eegdialog.h"
+#include "spo2dialog.h"
 
 CyberBox::CyberBox(QWidget *parent)
     : QMainWindow(parent)
@@ -40,5 +46,53 @@ CyberBox::CyberBox(QWidget *parent)
 CyberBox::~CyberBox()
 {
     delete ui;
+}
+
+
+void CyberBox::on_pushButtonAttacker_clicked()
+{
+    AttackerDialog attackerDialog;
+    attackerDialog.setModal(true);
+    attackerDialog.exec();
+}
+
+
+void CyberBox::on_pushButtonMain_clicked()
+{
+    MainDialog mainDialog;
+    mainDialog.setModal(true);
+    mainDialog.exec();
+}
+
+
+void CyberBox::on_pushButtonNetwork_clicked()
+{
+    NetworkDialog networkDialog;
+    networkDialog.setModal(true);
+    networkDialog.exec();
+}
+
+
+void CyberBox::on_pushButtonECG_clicked()
+{
+    ECGDialog ecgDialog;
+    ecgDialog.setModal(true);
+    ecgDialog.exec();
+}
+
+
+void CyberBox::on_pushButtonEEG_clicked()
+{
+    EEGDialog eegDialog;
+    eegDialog.setModal(true);
+    eegDialog.exec();
+}
+
+
+void CyberBox::on_pushButtonSpO2_clicked()
+{
+    SpO2Dialog spo2Dialog;
+    spo2Dialog.setModal(true);
+    spo2Dialog.exec();
 }
 

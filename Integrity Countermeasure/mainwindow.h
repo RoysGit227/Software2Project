@@ -41,6 +41,8 @@ private slots:
 
     void on_TypeComboBox_currentTextChanged(const QString &arg1);
 
+    void on_imageButton_clicked();
+
 private:
 
     Ui::MainWindow *ui;

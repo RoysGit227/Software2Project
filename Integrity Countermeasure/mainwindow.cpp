@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QFileDialog>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -18,7 +20,7 @@ void MainWindow::on_EncryptionPushButton_clicked()
 
 {
     QString plainText = ui->plainTextEdit_plain->toPlainText();
-    QString encryptedText = "to be implemented";
+    QString encryptedText = "You must add a plain text on Encrypt!";
 
 //When We select Ceaser Cipher
     if(ui->TypeComboBox->currentIndex() == 0)
@@ -30,7 +32,7 @@ void MainWindow::on_EncryptionPushButton_clicked()
 //When we have selected DES in binary
     else if(ui->TypeComboBox->currentIndex() == 1)
     {
-        QString key = ui->lineEdit_DES_key->text();
+        QString key = ui->lineEdit_DES_key_2->text();
         encryptedText = DESE(plainText, key.toStdString());
     }
 
@@ -40,6 +42,12 @@ void MainWindow::on_EncryptionPushButton_clicked()
         QString key = ui->lineEdit_DES_key->text();
         encryptedText = DESD(plainText, key.toStdString());
     }
+    //When we have selected Image Encryption
+        else if(ui->TypeComboBox->currentIndex() == 3)
+        {
+        QString key = ui->lineEditImage->text();
+
+        }
     ui->plainTextEdit_encrypted->document()->setPlainText(encryptedText);
 }
 
@@ -47,7 +55,7 @@ void MainWindow::on_EncryptionPushButton_clicked()
 void MainWindow::on_DecryptionPushButton_clicked()
 {
     QString encryptedText = ui->plainTextEdit_encrypted->toPlainText();
-    QString plainText = "to be implemented";
+    QString plainText = "You must add a plain text on Encrypt!";
 
 //When We select Ceaser Cipher
     if(ui->TypeComboBox->currentIndex() == 0)
@@ -58,7 +66,7 @@ void MainWindow::on_DecryptionPushButton_clicked()
 //When we have selected DES in binary
     else if(ui->TypeComboBox->currentIndex() == 1)
     {
-        QString key = ui->lineEdit_DES_key->text();
+        QString key = ui->lineEdit_DES_key_2->text();
         plainText = iDESE(encryptedText, key.toStdString());
     }
 //When we have selected DES in Text
@@ -67,6 +75,12 @@ void MainWindow::on_DecryptionPushButton_clicked()
         QString key = ui->lineEdit_DES_key->text();
         plainText = iDESD(encryptedText, key.toStdString());
     }
+    //When we have selected Image Encryption
+        else if(ui->TypeComboBox->currentIndex() == 3)
+        {
+        QString key = ui->lineEditImage->text();
+
+        }
     ui->plainTextEdit_plain->document()->setPlainText(plainText);
 }
 
@@ -108,14 +122,34 @@ void MainWindow::on_TypeComboBox_currentTextChanged(const QString &arg1)
     if(arg1 == "Caesar Cipher")
     {
         ui->stackedWidget->setCurrentIndex(0);
+        ui->label->setVisible(true);
+        ui->label_2->setVisible(true);
+        ui->plainTextEdit_plain->setVisible(true);
+        ui->plainTextEdit_encrypted->setVisible(true);
     }
     else if(arg1 == "DES")
     {
         ui->stackedWidget->setCurrentIndex(1);
+        ui->label->setVisible(true);
+        ui->label_2->setVisible(true);
+        ui->plainTextEdit_plain->setVisible(true);
+        ui->plainTextEdit_encrypted->setVisible(true);
     }
     else if(arg1 == "DES with Text")
     {
         ui->stackedWidget->setCurrentIndex(2);
+        ui->label->setVisible(true);
+        ui->label_2->setVisible(true);
+        ui->plainTextEdit_plain->setVisible(true);
+        ui->plainTextEdit_encrypted->setVisible(true);
+    }
+    else if(arg1 == "Image Encryption")
+    {
+        ui->stackedWidget->setCurrentIndex(3);
+        ui->label->setVisible(false);
+        ui->label_2->setVisible(false);
+        ui->plainTextEdit_plain->setVisible(false);
+        ui->plainTextEdit_encrypted->setVisible(false);
     }
 }
 
@@ -171,7 +205,7 @@ QString MainWindow::DESE(QString plainText, std::string key)
 }
 
 //Function to Decrypt DES Text
-QString MainWindow::DESD(QString encryptedText, std::string key)
+QString MainWindow::iDESE(QString encryptedText, std::string key)
 {
     std::vector< std::string > keys = keyGeneration(key);
 
@@ -262,7 +296,7 @@ std::vector< std::string > MainWindow::keyGeneration(std::string key)
     std::cout << std::endl << ">[BEGIN] Keys generated Successfully" << std::endl << std:: endl;
 
     //Print out the keys on Terminal
-    for(size_t i=0; i<finalKeys.size(); ++i)
+    for(int i=0; i<finalKeys.size(); ++i)
     {
         std::cout << "Key " << i+1 << ": " << finalKeys[i] << std::endl;
     }
@@ -358,7 +392,7 @@ std::string MainWindow::Xor(std::string str1, std::string str2)
 
     std::string result = "";
     //Traverse through the string and turn all 1 into 0's and 0 into 1's
-    for(size_t i=0;i<str1.length();++i)
+    for(int i=0;i<str1.length();++i)
     {
         if(str1[i] == str2[i])
             result += '0';
@@ -500,7 +534,7 @@ std::string MainWindow::eBit(std::string str)
 
 
 //DES with Text
-QString MainWindow::iDESE(QString plainText, std::string key)
+QString MainWindow::DESD(QString plainText, std::string key)
 {
     std::vector< std::string > keys = keyGeneration(key);
     std::vector< std::string > blocks = BinaryAscii(plainText.toStdString());
@@ -591,3 +625,27 @@ char MainWindow::BinaryAsciiToChar(std::string binaryAscii)
 {
     return char(std::bitset<8>(binaryAscii).to_ulong());
 }
+
+
+
+void MainWindow::on_imageButton_clicked()
+{
+    QString filename = QFileDialog::getOpenFileName(this, tr("Choose"), "", tr("Images (*.png *.jpg *.jpeg *.bmp *.gif)"));
+
+    if (QString::compare(filename, QString()) != 0)
+    {
+        QImage image;
+        bool valid = image.load(filename);
+
+        if (valid)
+        {
+        image = image.scaledToWidth(ui->plainImage->width(), Qt::SmoothTransformation);
+        ui->plainImage->setPixmap(QPixmap::fromImage(image));
+        }
+        else
+        {
+            //Error handling
+        }
+    }
+}
+

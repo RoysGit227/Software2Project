@@ -16,17 +16,7 @@ public:
     ~CyberBox();
 
 private slots:
-    void on_pushButtonAttacker_clicked();
 
-    void on_pushButtonMain_clicked();
-
-    void on_pushButtonNetwork_clicked();
-
-    void on_pushButtonECG_clicked();
-
-    void on_pushButtonEEG_clicked();
-
-    void on_pushButtonSpO2_clicked();
 
 private:
     Ui::CyberBox *ui;

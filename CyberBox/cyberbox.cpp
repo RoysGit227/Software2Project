@@ -2,6 +2,13 @@
 #include "ui_cyberbox.h"
 #include <QPixmap>
 
+#include "attackermain.h"
+#include "maincompmain.h"
+#include "networkmain.h"
+#include "ecgmain.h"
+#include "eegmain.h"
+#include "spo2main.h"
+
 
 CyberBox::CyberBox(QWidget *parent)
     : QMainWindow(parent)
@@ -44,4 +51,40 @@ CyberBox::~CyberBox()
 }
 
 
+
+
+void CyberBox::on_pushButtonAttacker_clicked()
+{
+    nw->show();
+}
+
+
+void CyberBox::on_pushButtonMain_clicked()
+{
+    nw1->show();
+}
+
+
+void CyberBox::on_pushButtonNetwork_clicked()
+{
+    nw2->show();
+}
+
+
+void CyberBox::on_pushButtonECG_clicked()
+{
+    nw3->show();
+}
+
+
+void CyberBox::on_pushButtonEEG_clicked()
+{
+    nw4->show();
+}
+
+
+void CyberBox::on_pushButtonSpO2_clicked()
+{
+    nw5->show();
+}
 

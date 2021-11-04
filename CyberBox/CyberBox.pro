@@ -9,14 +9,32 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    attackermain.cpp \
+    ecgmain.cpp \
+    eegmain.cpp \
     main.cpp \
-    cyberbox.cpp
+    cyberbox.cpp \
+    maincompmain.cpp \
+    networkmain.cpp \
+    spo2main.cpp
 
 HEADERS += \
-    cyberbox.h
+    attackermain.h \
+    cyberbox.h \
+    ecgmain.h \
+    eegmain.h \
+    maincompmain.h \
+    networkmain.h \
+    spo2main.h
 
 FORMS += \
-    cyberbox.ui
+    attackermain.ui \
+    cyberbox.ui \
+    ecgmain.ui \
+    eegmain.ui \
+    maincompmain.ui \
+    networkmain.ui \
+    spo2main.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

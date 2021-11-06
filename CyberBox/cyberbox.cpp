@@ -1,13 +1,14 @@
 #include "cyberbox.h"
 #include "ui_cyberbox.h"
 #include <QPixmap>
-
+#include <QDebug>
 #include "attackermain.h"
 #include "maincompmain.h"
 #include "networkmain.h"
 #include "ecgmain.h"
 #include "eegmain.h"
 #include "spo2main.h"
+#include "router.h"
 
 
 CyberBox::CyberBox(QWidget *parent)
@@ -42,7 +43,11 @@ CyberBox::CyberBox(QWidget *parent)
     QPixmap pix8("/Users/salvadorvalenzuela/Documents/Software2Project/CyberBox/WebPics/BITalino.jpg");
     ui->labelBIT3->setPixmap(pix8.scaled(121,191,Qt::KeepAspectRatio));
 
+    Router netWork;
 
+    connect(&netWork, SIGNAL(Added(QString,QString,int)), nw2, SLOT(Update(QString,QString,int)));
+
+    netWork.addDevice(QString("Main Computer"));
 }
 
 CyberBox::~CyberBox()

@@ -16,6 +16,8 @@ SOURCES += \
     cyberbox.cpp \
     maincompmain.cpp \
     networkmain.cpp \
+    node.cpp \
+    router.cpp \
     spo2main.cpp
 
 HEADERS += \
@@ -25,6 +27,8 @@ HEADERS += \
     eegmain.h \
     maincompmain.h \
     networkmain.h \
+    node.h \
+    router.h \
     spo2main.h
 
 FORMS += \

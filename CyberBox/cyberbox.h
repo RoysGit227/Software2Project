@@ -8,6 +8,7 @@
 #include "ecgmain.h"
 #include "eegmain.h"
 #include "spo2main.h"
+#include "router.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class CyberBox; }
@@ -20,6 +21,7 @@ class CyberBox : public QMainWindow
 public:
     CyberBox(QWidget *parent = nullptr);
     ~CyberBox();
+
 
 private slots:
 
@@ -45,4 +47,5 @@ private:
     EEGMain *nw4 = new EEGMain();
     SpO2Main *nw5 = new SpO2Main();
 };
+
 #endif // CYBERBOX_H

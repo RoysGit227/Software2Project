@@ -43,11 +43,16 @@ CyberBox::CyberBox(QWidget *parent)
     QPixmap pix8("/Users/salvadorvalenzuela/Documents/Software2Project/CyberBox/WebPics/BITalino.jpg");
     ui->labelBIT3->setPixmap(pix8.scaled(121,191,Qt::KeepAspectRatio));
 
-    Router netWork;
+    Router netWork;//Create network
 
-    connect(&netWork, SIGNAL(Added(QString,QString,int)), nw2, SLOT(Update(QString,QString,int)));
+    connect(&netWork, SIGNAL(change(QString,QString,int)), nw2, SLOT(Update(QString,QString,int)));
+    //connect(nw2, SIGNAL(addDev(QString)), &netWork, SLOT(add(QString)), Qt::DirectConnection);
+   // connect(nw2, SIGNAL(remDev(int)), &netWork, SLOT(remove(int)));
 
     netWork.addDevice(QString("Router Pi"));
+    netWork.addDevice(QString("Router Pi"));
+    netWork.addDevice(QString("Router Pi"));
+    netWork.removeDevice(2);
 }
 
 CyberBox::~CyberBox()

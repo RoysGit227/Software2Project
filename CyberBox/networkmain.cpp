@@ -14,7 +14,6 @@ NetworkMain::NetworkMain(QWidget *parent) :
     ui->tableWidget->setRowCount(6);
     titles << "Device Name" << "IP Address";
     ui->tableWidget->setHorizontalHeaderLabels(titles);
-
 }
 
 NetworkMain::~NetworkMain()
@@ -30,4 +29,18 @@ void NetworkMain::Update(QString device, QString address, int i){
 }
 
 
+
+
+void NetworkMain::on_addDevButton_clicked()
+{
+    QString txt = ui->devNameLine->text();
+    qDebug()<<"DEV ADD: "<<txt;
+    emit addDev(txt);
+}
+
+
+void NetworkMain::on_removeDevButton_clicked()
+{
+    emit remDev(ui->dev_spinBox->value());
+}
 

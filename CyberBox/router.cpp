@@ -1,5 +1,5 @@
 #include "router.h"
-
+#include <QDebug>
 Router::Router(QObject *parent) : QObject(parent)
 {
     for (int i = 0; i < 5; i++) {
@@ -25,18 +25,33 @@ const Node& Router::addDevice(const QString& nm){
             filled[i] = true;//IP Address is not being used
             ipTable[i].device_name = nm;//Update device taking address
             tmp = &ipTable[i];//set node that will be stored in device to hold information of connection
-            emit Added(tmp->device_name, tmp->addr,i);//SIGNAL to update IPTable in NetworkMain.ui
+            tmp->next = &ipTable[i];
+            ipTable[i].next = tmp;
+            emit change(tmp->device_name, tmp->addr,i);//SIGNAL to update IPTable in NetworkMain.ui
             return *tmp;
         }
     }
     return *tmp;
 }
 
-const Node& Router::removeDevice(Node& tmp){
-    tmp.next->device_name = "None";
-    tmp.next->addr =" ";
-    //emit Added(tmp.next->device_name, tmp.next->addr,i);//SIGNAL to update IPTable in NetworkMain.ui
-    tmp.next->next = NULL;
-    tmp.next = NULL;
-    return tmp;
+void Router::removeDevice(int i){
+    ipTable[i].device_name = " ";
+    ipTable[i].addr =" ";
+    ipTable[i].next->device_name = "None";
+    ipTable[i].next->addr = " ";
+
+    emit change(" ", " ",i);//SIGNAL to update IPTable in NetworkMain.ui
+    filled[i] = false;
+    ipTable[i].next->next = NULL;//Device previously connected has no connection
+    ipTable[i].next = NULL;//Disconnect device
+}
+
+//SLOTS FOR UPDATING TABLE IN NETWORKMAIN.UI
+void Router::add(QString device){
+    qDebug()<<"RECEIVED: " << device;
+    addDevice(device);
+}
+
+void Router::remove(int i){
+    removeDevice(i);
 }

@@ -47,7 +47,7 @@ CyberBox::CyberBox(QWidget *parent)
 
     connect(&netWork, SIGNAL(Added(QString,QString,int)), nw2, SLOT(Update(QString,QString,int)));
 
-    netWork.addDevice(QString("Main Computer"));
+    netWork.addDevice(QString("Router Pi"));
 }
 
 CyberBox::~CyberBox()

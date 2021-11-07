@@ -14,6 +14,7 @@ private:
     Node* next;
     int idx;
     friend class Router;
+    friend class NetworkMain;
 };
 
 #endif // NODE_H

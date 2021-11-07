@@ -12,6 +12,7 @@ private:
     QString addr;
     QString device_name;
     Node* next;
+    int idx;
     friend class Router;
 };
 

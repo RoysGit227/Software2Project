@@ -1,6 +1,6 @@
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++11
 
@@ -17,6 +17,7 @@ SOURCES += \
     maincompmain.cpp \
     networkmain.cpp \
     node.cpp \
+    qcustomplot.cpp \
     router.cpp \
     spo2main.cpp
 
@@ -28,6 +29,7 @@ HEADERS += \
     maincompmain.h \
     networkmain.h \
     node.h \
+    qcustomplot.h \
     router.h \
     spo2main.h
 

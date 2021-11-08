@@ -2,7 +2,7 @@
 #define NETWORKMAIN_H
 #include <QMainWindow>
 #include "router.h"
-
+#include "qcustomplot.h"
 namespace Ui {
 class NetworkMain;
 }
@@ -14,6 +14,7 @@ class NetworkMain : public QMainWindow
 public:
     explicit NetworkMain(QWidget *parent = nullptr);
     ~NetworkMain();
+    void usageGraph();
 
 signals:
     void addDev(QString device);
@@ -21,7 +22,7 @@ signals:
 
 public slots:
     void Update(QString device, QString address, int i);
-
+    void error();
 private slots:
     void on_addDevButton_clicked();
     void on_removeDevButton_clicked();

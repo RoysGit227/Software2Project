@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 
     //Connect signal to update IP Tables between Router Object and NetworkMain.ui
     QObject::connect(&netWork, SIGNAL(change(QString,QString,int)), box.nw2, SLOT(Update(QString,QString,int)));
+    QObject::connect(&netWork, SIGNAL(full()), box.nw2, SLOT(error()));
     QObject::connect(box.nw2, SIGNAL(addDev(QString)), &netWork, SLOT(add(QString)));
     QObject::connect(box.nw2, SIGNAL(remDev(int)), &netWork, SLOT(remove(int)));
 

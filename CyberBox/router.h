@@ -19,14 +19,14 @@ public:
 
 signals:
     void change(QString device, QString address, int i);
-
+    void full();
 public slots:
     void add(QString device);
     void remove(int i);
 
 private:
-    Node ipTable[5];
-    bool filled[5] = {false,false,false,false,false};
+    Node ipTable[6];
+    bool filled[6] = {false,false,false,false,false,false};
     int size;
     friend class NetworkMain;
 

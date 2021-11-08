@@ -8,6 +8,8 @@
 
 #include <memory>
 #include "../../CyberBox/networkmain.h"
+#include <QtGui/qtextcursor.h>
+#include <QScreen>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -22,8 +24,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_NetworkMain_t {
-    const uint offsetsAndSize[20];
-    char stringdata0[102];
+    const uint offsetsAndSize[22];
+    char stringdata0[108];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_NetworkMain_t, stringdata0) + ofs), len 
@@ -37,12 +39,13 @@ QT_MOC_LITERAL(27, 6), // "remDev"
 QT_MOC_LITERAL(34, 1), // "i"
 QT_MOC_LITERAL(36, 6), // "Update"
 QT_MOC_LITERAL(43, 7), // "address"
-QT_MOC_LITERAL(51, 23), // "on_addDevButton_clicked"
-QT_MOC_LITERAL(75, 26) // "on_removeDevButton_clicked"
+QT_MOC_LITERAL(51, 5), // "error"
+QT_MOC_LITERAL(57, 23), // "on_addDevButton_clicked"
+QT_MOC_LITERAL(81, 26) // "on_removeDevButton_clicked"
 
     },
     "NetworkMain\0addDev\0\0device\0remDev\0i\0"
-    "Update\0address\0on_addDevButton_clicked\0"
+    "Update\0address\0error\0on_addDevButton_clicked\0"
     "on_removeDevButton_clicked"
 };
 #undef QT_MOC_LITERAL
@@ -53,7 +56,7 @@ static const uint qt_meta_data_NetworkMain[] = {
        9,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -61,13 +64,14 @@ static const uint qt_meta_data_NetworkMain[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   44,    2, 0x06,    0 /* Public */,
-       4,    1,   47,    2, 0x06,    2 /* Public */,
+       1,    1,   50,    2, 0x06,    0 /* Public */,
+       4,    1,   53,    2, 0x06,    2 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       6,    3,   50,    2, 0x0a,    4 /* Public */,
-       8,    0,   57,    2, 0x08,    8 /* Private */,
-       9,    0,   58,    2, 0x08,    9 /* Private */,
+       6,    3,   56,    2, 0x0a,    4 /* Public */,
+       8,    0,   63,    2, 0x0a,    8 /* Public */,
+       9,    0,   64,    2, 0x08,    9 /* Private */,
+      10,    0,   65,    2, 0x08,   10 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    3,
@@ -75,6 +79,7 @@ static const uint qt_meta_data_NetworkMain[] = {
 
  // slots: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::Int,    3,    7,    5,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -90,8 +95,9 @@ void NetworkMain::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 0: _t->addDev((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 1: _t->remDev((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 2: _t->Update((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
-        case 3: _t->on_addDevButton_clicked(); break;
-        case 4: _t->on_removeDevButton_clicked(); break;
+        case 3: _t->error(); break;
+        case 4: _t->on_addDevButton_clicked(); break;
+        case 5: _t->on_removeDevButton_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -121,7 +127,7 @@ const QMetaObject NetworkMain::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_NetworkMain_t
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,
@@ -148,13 +154,13 @@ int NetworkMain::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }

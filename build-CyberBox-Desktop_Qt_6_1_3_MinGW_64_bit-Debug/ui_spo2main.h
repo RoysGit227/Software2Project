@@ -21,8 +21,8 @@ QT_BEGIN_NAMESPACE
 class Ui_SpO2Main
 {
 public:
-    QMenuBar *menubar;
     QWidget *centralwidget;
+    QMenuBar *menubar;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *SpO2Main)
@@ -30,12 +30,13 @@ public:
         if (SpO2Main->objectName().isEmpty())
             SpO2Main->setObjectName(QString::fromUtf8("SpO2Main"));
         SpO2Main->resize(800, 600);
-        menubar = new QMenuBar(SpO2Main);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-        SpO2Main->setMenuBar(menubar);
         centralwidget = new QWidget(SpO2Main);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         SpO2Main->setCentralWidget(centralwidget);
+        menubar = new QMenuBar(SpO2Main);
+        menubar->setObjectName(QString::fromUtf8("menubar"));
+        menubar->setGeometry(QRect(0, 0, 800, 21));
+        SpO2Main->setMenuBar(menubar);
         statusbar = new QStatusBar(SpO2Main);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         SpO2Main->setStatusBar(statusbar);

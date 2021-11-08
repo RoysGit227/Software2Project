@@ -6,6 +6,7 @@ release/cyberbox.o
 release/maincompmain.o
 release/networkmain.o
 release/node.o
+release/qcustomplot.o
 release/router.o
 release/spo2main.o
 release/moc_attackermain.o
@@ -14,5 +15,6 @@ release/moc_ecgmain.o
 release/moc_eegmain.o
 release/moc_maincompmain.o
 release/moc_networkmain.o
+release/moc_qcustomplot.o
 release/moc_router.o
 release/moc_spo2main.o

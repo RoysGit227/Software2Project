@@ -24,6 +24,7 @@ const Node& Router::addDevice(const QString& nm){
         if(!(filled[i])){
             filled[i] = true;//IP Address is not being used
             ipTable[i].device_name = nm;//Update device taking address
+            ipTable[i].addr = "192.168.0." + QString::number(i);
             tmp = &ipTable[i];//set node that will be stored in device to hold information of connection
             tmp->next = &ipTable[i];
             ipTable[i].next = tmp;

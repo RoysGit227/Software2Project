@@ -21,7 +21,13 @@ class CyberBox : public QMainWindow
 public:
     CyberBox(QWidget *parent = nullptr);
     ~CyberBox();
-
+    Ui::CyberBox *ui;
+    Attacker *nw = new Attacker();
+    MainCompMain *nw1 = new MainCompMain();
+    NetworkMain *nw2 = new NetworkMain();
+    ECGMain *nw3 = new ECGMain();
+    EEGMain *nw4 = new EEGMain();
+    SpO2Main *nw5 = new SpO2Main();
 
 private slots:
 
@@ -38,14 +44,8 @@ private slots:
 
     void on_pushButtonSpO2_clicked();
 
-private:
-    Ui::CyberBox *ui;
-    Attacker *nw = new Attacker();
-    MainCompMain *nw1 = new MainCompMain();
-    NetworkMain *nw2 = new NetworkMain();
-    ECGMain *nw3 = new ECGMain();
-    EEGMain *nw4 = new EEGMain();
-    SpO2Main *nw5 = new SpO2Main();
+
+
 };
 
 #endif // CYBERBOX_H

@@ -24,7 +24,6 @@ public slots:
 
 private slots:
     void on_addDevButton_clicked();
-
     void on_removeDevButton_clicked();
 
 private:

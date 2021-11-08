@@ -30,7 +30,6 @@ private:
     int size;
     friend class NetworkMain;
 
-
 };
 
 #endif // ROUTER_H

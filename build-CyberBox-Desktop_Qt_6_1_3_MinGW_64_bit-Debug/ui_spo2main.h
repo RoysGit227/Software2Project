@@ -11,10 +11,12 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
+#include <qcustomplot.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -22,6 +24,8 @@ class Ui_SpO2Main
 {
 public:
     QWidget *centralwidget;
+    QCustomPlot *plot1;
+    QLabel *label_4;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -32,6 +36,13 @@ public:
         SpO2Main->resize(800, 600);
         centralwidget = new QWidget(SpO2Main);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        plot1 = new QCustomPlot(centralwidget);
+        plot1->setObjectName(QString::fromUtf8("plot1"));
+        plot1->setGeometry(QRect(109, 39, 581, 271));
+        label_4 = new QLabel(centralwidget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(340, 0, 91, 16));
+        label_4->setTextFormat(Qt::AutoText);
         SpO2Main->setCentralWidget(centralwidget);
         menubar = new QMenuBar(SpO2Main);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -49,6 +60,7 @@ public:
     void retranslateUi(QMainWindow *SpO2Main)
     {
         SpO2Main->setWindowTitle(QCoreApplication::translate("SpO2Main", "MainWindow", nullptr));
+        label_4->setText(QCoreApplication::translate("SpO2Main", "<html><head/><body><p><span style=\" font-weight:792; font-style:italic;\">SPO2 Graph</span></p></body></html>", nullptr));
     } // retranslateUi
 
 };

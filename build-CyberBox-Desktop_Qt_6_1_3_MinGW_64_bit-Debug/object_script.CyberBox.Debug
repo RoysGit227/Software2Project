@@ -8,6 +8,7 @@ debug/networkmain.o
 debug/node.o
 debug/qcustomplot.o
 debug/router.o
+debug/sensor.o
 debug/spo2main.o
 debug/moc_attackermain.o
 debug/moc_cyberbox.o
@@ -17,4 +18,5 @@ debug/moc_maincompmain.o
 debug/moc_networkmain.o
 debug/moc_qcustomplot.o
 debug/moc_router.o
+debug/moc_sensor.o
 debug/moc_spo2main.o

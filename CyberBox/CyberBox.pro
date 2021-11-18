@@ -19,6 +19,7 @@ SOURCES += \
     node.cpp \
     qcustomplot.cpp \
     router.cpp \
+    sensor.cpp \
     spo2main.cpp
 
 HEADERS += \
@@ -31,6 +32,7 @@ HEADERS += \
     node.h \
     qcustomplot.h \
     router.h \
+    sensor.h \
     spo2main.h
 
 FORMS += \
@@ -46,3 +48,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+SUBDIRS += \
+    ../Integrity Countermeasure/Encryp.pro

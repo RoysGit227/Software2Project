@@ -68,7 +68,8 @@ public:
         dev_spinBox = new QSpinBox(centralwidget);
         dev_spinBox->setObjectName(QString::fromUtf8("dev_spinBox"));
         dev_spinBox->setGeometry(QRect(190, 350, 42, 22));
-        dev_spinBox->setMinimum(1);
+        dev_spinBox->setMinimum(2);
+        dev_spinBox->setMaximum(24);
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(110, 310, 71, 16));
@@ -112,7 +113,7 @@ public:
         label_2->setText(QCoreApplication::translate("NetworkMain", "Device Index:", nullptr));
         label_3->setText(QCoreApplication::translate("NetworkMain", "<html><head/><body><p><span style=\" font-weight:800; font-style:italic;\">IPv4 TABLE</span></p></body></html>", nullptr));
         errorLabel->setText(QCoreApplication::translate("NetworkMain", "Error: Unable to Connect", nullptr));
-        label_4->setText(QCoreApplication::translate("NetworkMain", "<html><head/><body><p><span style=\" font-weight:792; font-style:italic;\">Graph Usage</span></p></body></html>", nullptr));
+        label_4->setText(QCoreApplication::translate("NetworkMain", "<html><head/><body><p><span style=\" font-weight:792; font-style:italic;\">Usage Graph</span></p></body></html>", nullptr));
     } // retranslateUi
 
 };

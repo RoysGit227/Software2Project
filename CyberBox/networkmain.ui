@@ -79,7 +79,10 @@
      </rect>
     </property>
     <property name="minimum">
-     <number>1</number>
+     <number>2</number>
+    </property>
+    <property name="maximum">
+     <number>24</number>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -157,7 +160,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:792; font-style:italic;&quot;&gt;Graph Usage&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:792; font-style:italic;&quot;&gt;Usage Graph&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="textFormat">
      <enum>Qt::AutoText</enum>

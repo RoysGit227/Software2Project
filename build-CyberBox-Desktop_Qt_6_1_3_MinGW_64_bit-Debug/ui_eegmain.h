@@ -11,18 +11,22 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
+#include <qcustomplot.h>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_EEGMain
 {
 public:
-    QMenuBar *menubar;
     QWidget *centralwidget;
+    QCustomPlot *plot1;
+    QLabel *label_4;
+    QMenuBar *menubar;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *EEGMain)
@@ -30,12 +34,20 @@ public:
         if (EEGMain->objectName().isEmpty())
             EEGMain->setObjectName(QString::fromUtf8("EEGMain"));
         EEGMain->resize(800, 600);
-        menubar = new QMenuBar(EEGMain);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-        EEGMain->setMenuBar(menubar);
         centralwidget = new QWidget(EEGMain);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        plot1 = new QCustomPlot(centralwidget);
+        plot1->setObjectName(QString::fromUtf8("plot1"));
+        plot1->setGeometry(QRect(109, 49, 581, 271));
+        label_4 = new QLabel(centralwidget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(340, 10, 91, 16));
+        label_4->setTextFormat(Qt::AutoText);
         EEGMain->setCentralWidget(centralwidget);
+        menubar = new QMenuBar(EEGMain);
+        menubar->setObjectName(QString::fromUtf8("menubar"));
+        menubar->setGeometry(QRect(0, 0, 800, 21));
+        EEGMain->setMenuBar(menubar);
         statusbar = new QStatusBar(EEGMain);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         EEGMain->setStatusBar(statusbar);
@@ -48,6 +60,7 @@ public:
     void retranslateUi(QMainWindow *EEGMain)
     {
         EEGMain->setWindowTitle(QCoreApplication::translate("EEGMain", "MainWindow", nullptr));
+        label_4->setText(QCoreApplication::translate("EEGMain", "<html><head/><body><p><span style=\" font-weight:792; font-style:italic;\">EEG Graph</span></p></body></html>", nullptr));
     } // retranslateUi
 
 };

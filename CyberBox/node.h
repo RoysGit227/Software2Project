@@ -15,6 +15,7 @@ private:
     int idx;
     friend class Router;
     friend class NetworkMain;
+    friend class RaspberryPi;
 };
 
 #endif // NODE_H

@@ -3,6 +3,7 @@
 #include <QMainWindow>
 #include "router.h"
 #include "qcustomplot.h"
+
 namespace Ui {
 class NetworkMain;
 }

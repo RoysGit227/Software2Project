@@ -9,6 +9,8 @@
 #include "eegmain.h"
 #include "spo2main.h"
 #include "router.h"
+#include "sensor.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class CyberBox; }

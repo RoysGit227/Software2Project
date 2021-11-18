@@ -26,8 +26,8 @@ const Node& Router::addDevice(const QString& nm){
             ipTable[i].device_name = nm;//Update device taking address
             ipTable[i].addr = "192.168.0." + QString::number(i);
             tmp = &ipTable[i];//set node that will be stored in device to hold information of connection
-            tmp->next = &ipTable[i];
-            ipTable[i].next = tmp;
+            tmp->next = &ipTable[i];//connect device to network
+            ipTable[i].next = tmp;//connect router to device
             emit change(tmp->device_name, tmp->addr,i);//SIGNAL to update IPTable in NetworkMain.ui
             return *tmp;
         }

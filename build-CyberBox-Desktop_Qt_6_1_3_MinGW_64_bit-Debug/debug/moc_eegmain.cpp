@@ -25,7 +25,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_EEGMain_t {
     const uint offsetsAndSize[10];
-    char stringdata0[35];
+    char stringdata0[31];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_EEGMain_t, stringdata0) + ofs), len 
@@ -34,11 +34,11 @@ static const qt_meta_stringdata_EEGMain_t qt_meta_stringdata_EEGMain = {
 QT_MOC_LITERAL(0, 7), // "EEGMain"
 QT_MOC_LITERAL(8, 7), // "eegPlot"
 QT_MOC_LITERAL(16, 0), // ""
-QT_MOC_LITERAL(17, 12), // "double[1000]"
-QT_MOC_LITERAL(30, 4) // "data"
+QT_MOC_LITERAL(17, 7), // "double*"
+QT_MOC_LITERAL(25, 5) // "data1"
 
     },
-    "EEGMain\0eegPlot\0\0double[1000]\0data"
+    "EEGMain\0eegPlot\0\0double*\0data1"
 };
 #undef QT_MOC_LITERAL
 
@@ -70,7 +70,7 @@ void EEGMain::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         auto *_t = static_cast<EEGMain *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->eegPlot((*reinterpret_cast< double(*)[1000]>(_a[1]))); break;
+        case 0: _t->eegPlot((*reinterpret_cast< double*(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -84,7 +84,7 @@ const QMetaObject EEGMain::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_EEGMain_t
 
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double *, std::false_type>
 
 
 >,

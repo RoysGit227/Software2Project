@@ -25,7 +25,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ECGMain_t {
     const uint offsetsAndSize[10];
-    char stringdata0[35];
+    char stringdata0[30];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_ECGMain_t, stringdata0) + ofs), len 
@@ -34,11 +34,11 @@ static const qt_meta_stringdata_ECGMain_t qt_meta_stringdata_ECGMain = {
 QT_MOC_LITERAL(0, 7), // "ECGMain"
 QT_MOC_LITERAL(8, 7), // "ecgPlot"
 QT_MOC_LITERAL(16, 0), // ""
-QT_MOC_LITERAL(17, 12), // "double[1000]"
-QT_MOC_LITERAL(30, 4) // "data"
+QT_MOC_LITERAL(17, 7), // "double*"
+QT_MOC_LITERAL(25, 4) // "data"
 
     },
-    "ECGMain\0ecgPlot\0\0double[1000]\0data"
+    "ECGMain\0ecgPlot\0\0double*\0data"
 };
 #undef QT_MOC_LITERAL
 
@@ -70,7 +70,7 @@ void ECGMain::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         auto *_t = static_cast<ECGMain *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->ecgPlot((*reinterpret_cast< double(*)[1000]>(_a[1]))); break;
+        case 0: _t->ecgPlot((*reinterpret_cast< double*(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -84,7 +84,7 @@ const QMetaObject ECGMain::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_ECGMain_t
 
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double *, std::false_type>
 
 
 >,

@@ -20,15 +20,16 @@ int main(int argc, char *argv[])
     QObject::connect(box.nw2, SIGNAL(remDev(int)), &netWork, SLOT(remove(int)));
 
     //Connect signals to plot Sensor Data
-    QObject::connect(&ecgSensor, SIGNAL(plotEcg(double[1000])), box.nw3, SLOT(ecgPlot(double[1000])));
-    QObject::connect(&eegSensor, SIGNAL(plotEeg(double[1000])), box.nw4, SLOT(eegPlot(double[1000])));
-    QObject::connect(&spO2Sensor, SIGNAL(plotSpo2(double[1000])), box.nw5, SLOT(spO2Plot(double[1000])));
+    QObject::connect(&ecgSensor, SIGNAL(plotEcg(double*)), box.nw3, SLOT(ecgPlot(double*)));
+    QObject::connect(&eegSensor, SIGNAL(plotEeg(double*)), box.nw4, SLOT(eegPlot(double*)));
+    QObject::connect(&spO2Sensor, SIGNAL(plotSpo2(double*)), box.nw5, SLOT(spO2Plot(double*)));
 
     netWork.addDevice(QString("Router Pi"));
 
     ecgSensor.readSignalFile("C:/Users/jarel/OneDrive/Documents/Software2Project-main/CyberBox/ecg.txt");
-    eegSensor.readSignalFile("C:/Users/jarel/OneDrive/Documents/Software2Project-main/CyberBox/ecg.txt");
-    spO2Sensor.readSignalFile("C:/Users/jarel/OneDrive/Documents/Software2Project-main/CyberBox/ecg.txt");
+    eegSensor.readSignalFile("C:/Users/jarel/OneDrive/Documents/Software2Project-main/CyberBox/eeg.txt");
+    spO2Sensor.readSignalFile("C:/Users/jarel/OneDrive/Documents/Software2Project-main/CyberBox/spo2.txt");
+
     ecgSensor.dataPlot(0);
     eegSensor.dataPlot(1);
     spO2Sensor.dataPlot(2);

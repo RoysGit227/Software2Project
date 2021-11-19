@@ -16,11 +16,11 @@ public:
     ~EEGMain();
 
 public slots:
-    void eegPlot(double data[1000]);
+    void eegPlot(double* data1);
 
 private:
     Ui::EEGMain *ui;
-
+    friend class Sensor;
 };
 
 #endif // EEGMAIN_H

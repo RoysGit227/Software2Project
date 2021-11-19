@@ -1,5 +1,6 @@
 #include "spo2main.h"
 #include "ui_spo2main.h"
+#include "qcustomplot.h"
 
 SpO2Main::SpO2Main(QWidget *parent) :
     QMainWindow(parent),
@@ -25,8 +26,8 @@ void SpO2Main::spO2Plot(double data[1000]){
     ui->plot1->addGraph();
     ui->plot1->graph(0)->setData(x, y);//Plot Data
     ui->plot1->replot();//Replot data after changing values (For Attacker)
-    ui->plot1->xAxis->setRange(0,600);
-    ui->plot1->yAxis->setRange(-1,1);
+    ui->plot1->xAxis->setRange(0,1000);
+    ui->plot1->yAxis->setRange(-20,20);
 
     ui->plot1->graph(0)->setPen(QPen("red"));
     ui->plot1->xAxis->setLabel("t(ms)");

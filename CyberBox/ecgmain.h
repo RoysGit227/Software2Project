@@ -16,7 +16,7 @@ public:
     ~ECGMain();
 
 public slots:
-    void ecgPlot(double data[1000]);
+    void ecgPlot(double* data);
 
 private:
     Ui::ECGMain *ui;

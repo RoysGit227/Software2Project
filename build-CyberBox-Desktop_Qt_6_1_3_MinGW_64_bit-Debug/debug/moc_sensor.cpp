@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Sensor_t {
     const uint offsetsAndSize[12];
-    char stringdata0[46];
+    char stringdata0[41];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_Sensor_t, stringdata0) + ofs), len 
@@ -32,12 +32,12 @@ static const qt_meta_stringdata_Sensor_t qt_meta_stringdata_Sensor = {
 QT_MOC_LITERAL(0, 6), // "Sensor"
 QT_MOC_LITERAL(7, 7), // "plotEcg"
 QT_MOC_LITERAL(15, 0), // ""
-QT_MOC_LITERAL(16, 12), // "double[1000]"
-QT_MOC_LITERAL(29, 7), // "plotEeg"
-QT_MOC_LITERAL(37, 8) // "plotSpo2"
+QT_MOC_LITERAL(16, 7), // "double*"
+QT_MOC_LITERAL(24, 7), // "plotEeg"
+QT_MOC_LITERAL(32, 8) // "plotSpo2"
 
     },
-    "Sensor\0plotEcg\0\0double[1000]\0plotEeg\0"
+    "Sensor\0plotEcg\0\0double*\0plotEeg\0"
     "plotSpo2"
 };
 #undef QT_MOC_LITERAL
@@ -74,29 +74,29 @@ void Sensor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         auto *_t = static_cast<Sensor *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->plotEcg((*reinterpret_cast< double(*)[1000]>(_a[1]))); break;
-        case 1: _t->plotEeg((*reinterpret_cast< double(*)[1000]>(_a[1]))); break;
-        case 2: _t->plotSpo2((*reinterpret_cast< double(*)[1000]>(_a[1]))); break;
+        case 0: _t->plotEcg((*reinterpret_cast< double*(*)>(_a[1]))); break;
+        case 1: _t->plotEeg((*reinterpret_cast< double*(*)>(_a[1]))); break;
+        case 2: _t->plotSpo2((*reinterpret_cast< double*(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (Sensor::*)(double [1000]);
+            using _t = void (Sensor::*)(double * );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Sensor::plotEcg)) {
                 *result = 0;
                 return;
             }
         }
         {
-            using _t = void (Sensor::*)(double [1000]);
+            using _t = void (Sensor::*)(double * );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Sensor::plotEeg)) {
                 *result = 1;
                 return;
             }
         }
         {
-            using _t = void (Sensor::*)(double [1000]);
+            using _t = void (Sensor::*)(double * );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Sensor::plotSpo2)) {
                 *result = 2;
                 return;
@@ -112,7 +112,7 @@ const QMetaObject Sensor::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_Sensor_t
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double *, std::false_type>
 
 
 
@@ -152,21 +152,21 @@ int Sensor::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void Sensor::plotEcg(double _t1[1000])
+void Sensor::plotEcg(double * _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 
 // SIGNAL 1
-void Sensor::plotEeg(double _t1[1000])
+void Sensor::plotEeg(double * _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 
 // SIGNAL 2
-void Sensor::plotSpo2(double _t1[1000])
+void Sensor::plotSpo2(double * _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);

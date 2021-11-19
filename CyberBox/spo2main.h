@@ -15,7 +15,7 @@ public:
     explicit SpO2Main(QWidget *parent = nullptr);
     ~SpO2Main();
 public slots:
-    void spO2Plot(double data[1000]);
+    void spO2Plot(double* data);
 private:
     Ui::SpO2Main *ui;
 };

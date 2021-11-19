@@ -12,15 +12,14 @@ public:
     double getData(int i)const;
     void dataPlot(int i);
     void readSignalFile(QString filename);
-
+    double data[1000];
 
 signals:
-   void plotEcg(double[1000]);
-   void plotEeg(double [1000]);
-   void plotSpo2(double [1000]);
+   void plotEcg(double*);
+   void plotEeg(double*);
+   void plotSpo2(double*);
 
 private:
-    double data[1000];
     QString dataTxt[1000];
 
 signals:

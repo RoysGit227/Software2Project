@@ -14,7 +14,7 @@ ECGMain::~ECGMain()
     delete ui;
 }
 
-void ECGMain::ecgPlot(double data[1000]){
+void ECGMain::ecgPlot(double* data){
     //Compute 1000 Data points read from patient text file
     QVector<double> x(1000), y(1000);
     for(int i = 0; i < 1000; i++){

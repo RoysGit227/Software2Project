@@ -33,7 +33,14 @@ void Sensor::readSignalFile(QString filename){
     int i = 0;
     while(!stream.atEnd()){
         dataTxt[i] = stream.readLine();
-        data[i] = dataTxt[i].toDouble();
+        if(dataTxt[i].at(0) == QChar('-')){
+            dataTxt[i].remove(0,1);
+           // qDebug()<< "CHECK INIT " << i << ": " << dataTxt[i];
+            data[i] = dataTxt[i].toDouble() * -1;
+           // qDebug()<< "CHECK After " << i << ": " << data[i];
+        }
+        else
+            data[i] = dataTxt[i].toDouble();
         i++;
     }
     file.close();
@@ -43,8 +50,10 @@ void Sensor::readSignalFile(QString filename){
 void Sensor::dataPlot(int i){
     if(i == 0)
         emit plotEcg(data);
-    else if(i == 1)
+    else if(i == 1){
+        qDebug()<< "SIGNAL SENT: " << data[0];
         emit plotEeg(data);
+    }
     else if(i == 2)
         emit plotSpo2(data);
 }

@@ -25,7 +25,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_SpO2Main_t {
     const uint offsetsAndSize[10];
-    char stringdata0[37];
+    char stringdata0[32];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_SpO2Main_t, stringdata0) + ofs), len 
@@ -34,11 +34,11 @@ static const qt_meta_stringdata_SpO2Main_t qt_meta_stringdata_SpO2Main = {
 QT_MOC_LITERAL(0, 8), // "SpO2Main"
 QT_MOC_LITERAL(9, 8), // "spO2Plot"
 QT_MOC_LITERAL(18, 0), // ""
-QT_MOC_LITERAL(19, 12), // "double[1000]"
-QT_MOC_LITERAL(32, 4) // "data"
+QT_MOC_LITERAL(19, 7), // "double*"
+QT_MOC_LITERAL(27, 4) // "data"
 
     },
-    "SpO2Main\0spO2Plot\0\0double[1000]\0data"
+    "SpO2Main\0spO2Plot\0\0double*\0data"
 };
 #undef QT_MOC_LITERAL
 
@@ -70,7 +70,7 @@ void SpO2Main::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         auto *_t = static_cast<SpO2Main *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->spO2Plot((*reinterpret_cast< double(*)[1000]>(_a[1]))); break;
+        case 0: _t->spO2Plot((*reinterpret_cast< double*(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -84,7 +84,7 @@ const QMetaObject SpO2Main::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_SpO2Main_t
 
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double *, std::false_type>
 
 
 >,

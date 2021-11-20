@@ -1,5 +1,6 @@
 #include "networkmain.h"
 #include "ui_networkmain.h"
+#include <math.h>
 #include <QDebug>
 
 
@@ -15,7 +16,7 @@ NetworkMain::NetworkMain(QWidget *parent) :
     titles << "Device Name" << "IP Address";
     ui->tableWidget->setHorizontalHeaderLabels(titles);
     ui->errorLabel->setVisible(false);
-    usageGraph();
+    usageGraph(1);
 }
 
 NetworkMain::~NetworkMain()
@@ -31,18 +32,19 @@ void NetworkMain::Update(QString device, QString address, int i){
 }
 
 
-void NetworkMain::usageGraph(){
+void NetworkMain::usageGraph(int a){
     //Compute Data points
     QVector<double> x(100), y(100);
     for(int i = 0; i < 100; i++){
         x[i] = i;
-        y[i] = x[i]*x[i];
+        y[i] = a*sin(0.5*x[i]);
+        qDebug()<<"SAT VAL: "<<y[i];
     }
     ui->plot->addGraph();//Add Graph
     ui->plot->graph(0)->setData(x,y);//Plot Data
     ui->plot->replot();//Replot Data
     ui->plot->xAxis->setRange(0,100);
-    ui->plot->yAxis->setRange(0,10000);
+    ui->plot->yAxis->setRange(-23,23);
 
     ui->plot->graph(0)->setPen(QPen("red"));
     ui->plot->xAxis->setLabel("Time (min)");
@@ -55,7 +57,9 @@ void NetworkMain::on_addDevButton_clicked()
     emit addDev(txt);
 
     ui->plot->clearPlottables();//Clear graph data
-    usageGraph();//Replot Graph
+    if(numDev != 24)
+        numDev++;
+    usageGraph(numDev);//Replot Graph
 }
 
 
@@ -66,7 +70,9 @@ void NetworkMain::on_removeDevButton_clicked()
     emit remDev(ui->dev_spinBox->value());
 
     ui->plot->clearPlottables();//Clear graph data
-    usageGraph();//Replot Graph
+    if(numDev != 0)
+        numDev--;
+    usageGraph(numDev);//Replot Graph
 }
 
 void NetworkMain::error(){

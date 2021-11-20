@@ -15,7 +15,7 @@ class NetworkMain : public QMainWindow
 public:
     explicit NetworkMain(QWidget *parent = nullptr);
     ~NetworkMain();
-    void usageGraph();
+    void usageGraph(int a);
 
 signals:
     void addDev(QString device);
@@ -24,12 +24,14 @@ signals:
 public slots:
     void Update(QString device, QString address, int i);
     void error();
+
 private slots:
     void on_addDevButton_clicked();
     void on_removeDevButton_clicked();
 
 private:
     Ui::NetworkMain *ui;
+    int numDev = 1;
 
 };
 

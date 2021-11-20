@@ -21,7 +21,6 @@ void EEGMain::eegPlot(double data1[1000]){
     for(int i = 0; i < 1000; i++){
         x[i] = i;
         y[i] = data1[i];//Array containing patient text file data
-        qDebug()<< "DATA " << i << ":" << data1[i];
     }
 
     //Plot data in given axis range, pen color, and label names
@@ -31,7 +30,7 @@ void EEGMain::eegPlot(double data1[1000]){
     ui->plot1->xAxis->setRange(0,1000);
     ui->plot1->yAxis->setRange(-20,20);
 
-    ui->plot1->graph(0)->setPen(QPen("red"));
+    ui->plot1->graph(0)->setPen(QPen("teal"));
     ui->plot1->xAxis->setLabel("t(ms)");
     ui->plot1->yAxis->setLabel("uV");
 }

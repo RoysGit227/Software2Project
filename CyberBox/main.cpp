@@ -13,8 +13,9 @@ int main(int argc, char *argv[])
     Sensor eegSensor;//Create EEG Sensor
     Sensor spO2Sensor;//Create SPO2 Sensor
 
+
     //Connect signal to update IP Tables between Router Object and NetworkMain.ui
-    QObject::connect(&netWork, SIGNAL(change(QString,QString,int)), box.nw2, SLOT(Update(QString,QString,int)));
+    QObject::connect(&netWork, SIGNAL(change(QString,QString,int,QString)), box.nw2, SLOT(Update(QString,QString,int,QString)));
     QObject::connect(&netWork, SIGNAL(full()), box.nw2, SLOT(error()));
     QObject::connect(box.nw2, SIGNAL(addDev(QString)), &netWork, SLOT(add(QString)));
     QObject::connect(box.nw2, SIGNAL(remDev(int)), &netWork, SLOT(remove(int)));
@@ -23,6 +24,9 @@ int main(int argc, char *argv[])
     QObject::connect(&ecgSensor, SIGNAL(plotEcg(double*)), box.nw3, SLOT(ecgPlot(double*)));
     QObject::connect(&eegSensor, SIGNAL(plotEeg(double*)), box.nw4, SLOT(eegPlot(double*)));
     QObject::connect(&spO2Sensor, SIGNAL(plotSpo2(double*)), box.nw5, SLOT(spO2Plot(double*)));
+
+    QObject::connect(box.nw, SIGNAL(zombieAdd(QString)), &netWork, SLOT(add(QString)));
+    QObject::connect(box.nw, SIGNAL(zombieRem(int)), &netWork, SLOT(remove(int)));
 
     netWork.addDevice(QString("Router Pi"));
 

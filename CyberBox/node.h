@@ -16,6 +16,7 @@ private:
     friend class Router;
     friend class NetworkMain;
     friend class RaspberryPi;
+    friend class Attacker;
 };
 
 #endif // NODE_H

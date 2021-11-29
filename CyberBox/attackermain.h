@@ -2,6 +2,8 @@
 #define ATTACKERMAIN_H
 
 #include <QMainWindow>
+#include "router.h"
+#include "qcustomplot.h"
 
 namespace Ui {
 class Attacker;
@@ -15,8 +17,23 @@ public:
     explicit Attacker(QWidget *parent = nullptr);
     ~Attacker();
 
+signals:
+    void zombieAdd(QString device);
+    void zombieRem(int i);
+
+
+private slots:
+    void on_addDevButton_clicked();
+
+
+    void on_removeDevButton_clicked();
+
 private:
     Ui::Attacker *ui;
+    int numDev = 1;
+
 };
 
-#endif // ATTACKERMAIN_H
+
+#endif // ATTACKERKMAIN_H
+

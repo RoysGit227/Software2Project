@@ -28,7 +28,7 @@ const Node& Router::addDevice(const QString& nm){
             tmp = &ipTable[i];//set node that will be stored in device to hold information of connection
             tmp->next = &ipTable[i];//connect device to network
             ipTable[i].next = tmp;//connect router to device
-            emit change(tmp->device_name, tmp->addr,i);//SIGNAL to update IPTable in NetworkMain.ui
+            emit change(tmp->device_name, tmp->addr,i,"a");//SIGNAL to update IPTable in NetworkMain.ui
             return *tmp;
         }
     }
@@ -42,7 +42,7 @@ void Router::removeDevice(int i){
     ipTable[i-1].next->device_name = "None";
     ipTable[i-1].next->addr = " ";
 
-    emit change(" ", " ",i-1);//SIGNAL to update IPTable in NetworkMain.ui
+    emit change(" ", " ",i-1,"r");//SIGNAL to update IPTable in NetworkMain.ui
     filled[i-1] = false;
     ipTable[i-1].next->next = NULL;//Device previously connected has no connection
     ipTable[i-1].next = NULL;//Disconnect device

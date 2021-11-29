@@ -18,7 +18,7 @@ public:
     void removeDevice(int i);//Remove Device from network
 
 signals:
-    void change(QString device, QString address, int i);
+    void change(QString device, QString address, int i, QString u);
     void full();
 public slots:
     void add(QString device);
@@ -29,6 +29,7 @@ private:
     bool filled[6] = {false,false,false,false,false,false};
     int size;
     friend class NetworkMain;
+    friend class Attacker;
 
 };
 

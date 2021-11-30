@@ -20,8 +20,8 @@
    <widget class="QPushButton" name="addDevButton">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>310</y>
+      <x>40</x>
+      <y>30</y>
       <width>121</width>
       <height>22</height>
      </rect>
@@ -33,8 +33,8 @@
    <widget class="QPushButton" name="removeDevButton">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>350</y>
+      <x>40</x>
+      <y>70</y>
       <width>121</width>
       <height>22</height>
      </rect>
@@ -46,8 +46,8 @@
    <widget class="QLineEdit" name="devNameLine">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>310</y>
+      <x>200</x>
+      <y>30</y>
       <width>121</width>
       <height>21</height>
      </rect>
@@ -56,8 +56,8 @@
    <widget class="QSpinBox" name="dev_spinBox">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>350</y>
+      <x>280</x>
+      <y>70</y>
       <width>42</width>
       <height>22</height>
      </rect>
@@ -72,8 +72,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>350</y>
+      <x>200</x>
+      <y>70</y>
       <width>81</width>
       <height>16</height>
      </rect>
@@ -82,59 +82,30 @@
      <string>Device Index:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QPushButton" name="removeDevButton_2">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>10</y>
-      <width>91</width>
-      <height>16</height>
+      <x>40</x>
+      <y>110</y>
+      <width>121</width>
+      <height>22</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:800; font-style:italic;&quot;&gt;IPv4 TABLE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="textFormat">
-     <enum>Qt::AutoText</enum>
+     <string>Remove All</string>
     </property>
    </widget>
-   <widget class="QLabel" name="errorLabel">
+   <widget class="QPushButton" name="addDevButton_2">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>270</y>
-      <width>171</width>
-      <height>20</height>
+      <x>200</x>
+      <y>110</y>
+      <width>121</width>
+      <height>22</height>
      </rect>
     </property>
     <property name="text">
-     <string>Error: Unable to Connect</string>
-    </property>
-   </widget>
-   <widget class="QCustomPlot" name="plot" native="true">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>40</y>
-      <width>491</width>
-      <height>221</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>460</x>
-      <y>10</y>
-      <width>171</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:792; font-style:italic;&quot;&gt;Network Utilization Graph&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="textFormat">
-     <enum>Qt::AutoText</enum>
+     <string>Automatic Add</string>
     </property>
    </widget>
   </widget>
@@ -150,14 +121,6 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QCustomPlot</class>
-   <extends>QWidget</extends>
-   <header location="global">qcustomplot.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -21,6 +21,7 @@ signals:
     void addDev(QString device);
     void remDev(int i);
 
+
 public slots:
     void Update(QString device, QString address, int i, QString u);
     void error();

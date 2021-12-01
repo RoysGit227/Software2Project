@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 
     QObject::connect(box.nw, SIGNAL(badSpo2Plot(int)), &spO2Sensor, SLOT(dataPlot(int)));
     QObject::connect(box.nw, SIGNAL(badSpo2Data(QString)), &spO2Sensor, SLOT(readSignalFile(QString)));
-    QObject::connect(box.nw, SIGNAL(badClearplot()), box.nw5, SLOT(clearSpo2()));
+    QObject::connect(box.nw, SIGNAL(badClearPlot()), box.nw5, SLOT(clearSpo2()));
 
     netWork.addDevice(QString("Router Pi"));
 

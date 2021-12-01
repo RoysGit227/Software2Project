@@ -30,7 +30,7 @@ void SpO2Main::spO2Plot(double data[1000]){
 
     ui->plot1->replot();//Replot data after changing values (For Attacker)
     ui->plot1->xAxis->setRange(0,1000);
-    ui->plot1->yAxis->setRange(75,95);
+    ui->plot1->yAxis->setRange(75,110);
 
     //ui->plot1->graph(0)->setPen(QPen("blue"));
     ui->plot1->xAxis->setLabel("t(ms)");
@@ -38,4 +38,5 @@ void SpO2Main::spO2Plot(double data[1000]){
 }
 void SpO2Main::clearSpo2(){
      ui->plot1->clearPlottables();
+     qDebug()<<"CLEARED";
 }

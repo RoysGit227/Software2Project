@@ -19,6 +19,7 @@ double Sensor::getData(int i)const{
 
 void Sensor::readSignalFile(QString filename){
     QFile file(filename);
+    qDebug()<<"File name: "<< filename;
     if(!file.exists()){
         qCritical() << "File not found";
         return;

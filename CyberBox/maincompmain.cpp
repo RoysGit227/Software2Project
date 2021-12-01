@@ -631,6 +631,21 @@ char MainCompMain::BinaryAsciiToChar(std::string binaryAscii)
 }
 
 
+void MainCompMain::on_pushButton_clicked()
+{
+    QString filename = QFileDialog::getOpenFileName(this, tr("Choose"), "C://");
+    QFile file(filename);
+
+    if (!file.open(QFile::ReadOnly | QFile::Text)){
+        QMessageBox::warning(this,"title","file not open");
+    }
+    QTextStream in(&file);
+    QString text = in.readAll();
+    ui->plainTextEdit_plain->setPlainText(text);
+
+    file.close();
+}
+
 QString MainCompMain::TextFileE(QString plainText, int key){
     std::string result = "";
     std::string plainStdText = plainText.toStdString();
@@ -690,18 +705,4 @@ QString MainCompMain::TextFileD(QString encryptedText, int key){
     }
     return QString::fromStdString(result);
 
-}
-void MainCompMain::on_pushButton_clicked()
-{
-    QString filename = QFileDialog::getOpenFileName(this, tr("Choose"), "C://");
-    QFile file(filename);
-
-    if (!file.open(QFile::ReadOnly | QFile::Text)){
-        QMessageBox::warning(this,"title","file not open");
-    }
-    QTextStream in(&file);
-    QString text = in.readAll();
-    ui->plainTextEdit_plain->setPlainText(text);
-
-    file.close();
 }

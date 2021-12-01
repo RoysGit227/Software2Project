@@ -12,7 +12,7 @@ NetworkMain::NetworkMain(QWidget *parent) :
     QStringList titles;
     setWindowTitle("IP TABLES");
     ui->tableWidget->setColumnCount(2);
-    ui->tableWidget->setRowCount(6);
+    ui->tableWidget->setRowCount(24);
     titles << "Device Name" << "IP Address";
     ui->tableWidget->setHorizontalHeaderLabels(titles);
     ui->errorLabel->setVisible(false);

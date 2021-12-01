@@ -2,9 +2,10 @@
 #include <QDebug>
 Router::Router(QObject *parent) : QObject(parent)
 {
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 24; i++) {
         Node point(i);//Constructor with IP Address generation
         ipTable[i] = point;//Set IP Address' of table
+       // filled[i] = false;//Set all filled values to false
     }
 }
 
@@ -19,7 +20,7 @@ const Node& Router::addDevice(const QString& nm){
     tmp->device_name = nm;//set device name
 
     //Traverse through entire IPTable
-    for(int i = 0; i < 6; i++){
+    for(int i = 0; i < 24; i++){
         //If there is a vacant spot to connect to, connect
         if(!(filled[i])){
             filled[i] = true;//IP Address is not being used

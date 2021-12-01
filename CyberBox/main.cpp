@@ -2,10 +2,16 @@
 
 #include <QApplication>
 #include <QString>
+#include <QFile>
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
+
+    QFile styleSheetFile("C:/Users/Owner/Documents/Software2Project-main/CyberBox/Diffnes.qss");
+    styleSheetFile.open(QFile::ReadOnly);
+    QString styleSheet = QLatin1String(styleSheetFile.readAll());
+    app.setStyleSheet(styleSheet);
 
     CyberBox box;//Main Window
     Router netWork;//Create network
@@ -27,6 +33,7 @@ int main(int argc, char *argv[])
 
     QObject::connect(box.nw, SIGNAL(zombieAdd(QString)), &netWork, SLOT(add(QString)));
     QObject::connect(box.nw, SIGNAL(zombieRem(int)), &netWork, SLOT(remove(int)));
+    QObject::connect(&netWork, SIGNAL(full()), box.nw, SLOT(stopTimer()));
 
     netWork.addDevice(QString("Router Pi"));
 
@@ -39,5 +46,5 @@ int main(int argc, char *argv[])
     spO2Sensor.dataPlot(2);
 
     box.show();
-    return a.exec();    
+    return app.exec();
 }

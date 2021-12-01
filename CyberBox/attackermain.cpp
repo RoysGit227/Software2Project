@@ -31,11 +31,14 @@ void Attacker::on_addDevButton_clicked()
 
 void Attacker::on_addDevButton_2_clicked()
 {
-    timer->start(2000);
+    timer->start(1000);
     emit zombieAdd(ui->devNameLine->text());
-    if(numDev > 6){
-        timer->stop();
-        ui->addDevButton->setText("Done!");
+}
+
+void Attacker::on_addDevButton_3_clicked()
+{
+    for(int i=0; i<24; i++){
+    emit zombieAdd(ui->devNameLine->text());
     }
 }
 
@@ -48,9 +51,14 @@ void Attacker::on_removeDevButton_clicked()
 
 void Attacker::on_removeDevButton_2_clicked()
 {
-    timer2->start(2000);
-    emit zombieRemAll(ui->devNameLine->text());
+       // timer2->start(1000);
+       // emit zombieRem(1);
 
+}
+
+void Attacker::stopTimer(){
+    timer->stop();
+    ui->addDevButton->setText("Done!");
 }
 
 

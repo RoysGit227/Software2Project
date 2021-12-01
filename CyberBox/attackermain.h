@@ -18,11 +18,10 @@ class Attacker : public QMainWindow
 public:
     explicit Attacker(QWidget *parent = nullptr);
     ~Attacker();
-
+    void stopTimer();
 signals:
     void zombieAdd(QString device);
     void zombieRem(int i);
-    void zombieRemAll(QString device);
 
 private slots:
     void on_addDevButton_clicked();
@@ -34,9 +33,10 @@ private slots:
 
     void on_addDevButton_2_clicked();
 
+    void on_addDevButton_3_clicked();
+
 private:
     Ui::Attacker *ui;
-    int numDev = 1;
 
 };
 

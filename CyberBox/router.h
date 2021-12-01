@@ -25,8 +25,8 @@ public slots:
     void remove(int i);
 
 private:
-    Node ipTable[6];
-    bool filled[6] = {false,false,false,false,false,false};
+    Node ipTable[24];
+    bool filled[24] = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, };
     int size;
     friend class NetworkMain;
     friend class Attacker;

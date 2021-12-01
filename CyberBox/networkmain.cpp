@@ -22,6 +22,7 @@ NetworkMain::NetworkMain(QWidget *parent) :
 NetworkMain::~NetworkMain()
 {
     delete ui;
+    ui->groupBox->setDisabled(false);
 }
 
 
@@ -32,6 +33,9 @@ void NetworkMain::usageGraph(int a){
         x[i] = i;
         y[i] = a*log2(5*x[i]);
         //qDebug()<<"SAT VAL: "<<y[i];
+        if(y[i] > 100)
+            ui->groupBox->setDisabled(true);
+
     }
     ui->plot->addGraph();//Add Graph
     ui->plot->graph(0)->setData(x,y);//Plot Data

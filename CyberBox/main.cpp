@@ -31,15 +31,20 @@ int main(int argc, char *argv[])
     QObject::connect(&eegSensor, SIGNAL(plotEeg(double*)), box.nw4, SLOT(eegPlot(double*)));
     QObject::connect(&spO2Sensor, SIGNAL(plotSpo2(double*)), box.nw5, SLOT(spO2Plot(double*)));
 
+    //Connect Signals from Attacker to NetWork
     QObject::connect(box.nw, SIGNAL(zombieAdd(QString)), &netWork, SLOT(add(QString)));
     QObject::connect(box.nw, SIGNAL(zombieRem(int)), &netWork, SLOT(remove(int)));
     QObject::connect(&netWork, SIGNAL(full()), box.nw, SLOT(stopTimer()));
 
+    QObject::connect(box.nw, SIGNAL(badSpo2Plot(int)), &spO2Sensor, SLOT(dataPlot(int)));
+    QObject::connect(box.nw, SIGNAL(badSpo2Data(QString)), &spO2Sensor, SLOT(readSignalFile(QString)));
+    QObject::connect(box.nw, SIGNAL(badClearplot()), box.nw5, SLOT(clearSpo2()));
+
     netWork.addDevice(QString("Router Pi"));
 
-    ecgSensor.readSignalFile("C:/Users/jarel/OneDrive/Documents/Software2Project-main/CyberBox/ecg.txt");
-    eegSensor.readSignalFile("C:/Users/jarel/OneDrive/Documents/Software2Project-main/CyberBox/eeg.txt");
-    spO2Sensor.readSignalFile("C:/Users/jarel/OneDrive/Documents/Software2Project-main/CyberBox/spo2.txt");
+    ecgSensor.readSignalFile("C:/Users/Owner/Documents/Software2Project-main/CyberBox/ecg.txt");
+    eegSensor.readSignalFile("C:/Users/Owner/Documents/Software2Project-main/CyberBox/eeg.txt");
+    spO2Sensor.readSignalFile("C:/Users/Owner/Documents/Software2Project-main/CyberBox/spo2.txt");
 
     ecgSensor.dataPlot(0);
     eegSensor.dataPlot(1);

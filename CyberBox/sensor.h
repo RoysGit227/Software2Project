@@ -14,6 +14,7 @@ public:
     void readSignalFile(QString filename);
     double data[1000];
 
+
 signals:
    void plotEcg(double*);
    void plotEeg(double*);

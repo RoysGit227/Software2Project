@@ -82,23 +82,23 @@
      <string>Device Index:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="removeDevButton_2">
+   <widget class="QPushButton" name="spO2Button">
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>110</y>
+      <y>150</y>
       <width>121</width>
       <height>22</height>
      </rect>
     </property>
     <property name="text">
-     <string>Remove All</string>
+     <string>Switch spO2</string>
     </property>
    </widget>
    <widget class="QPushButton" name="addDevButton_2">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>40</x>
       <y>110</y>
       <width>121</width>
       <height>22</height>
@@ -111,7 +111,7 @@
    <widget class="QPushButton" name="addDevButton_3">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>200</x>
       <y>110</y>
       <width>121</width>
       <height>22</height>
@@ -119,6 +119,16 @@
     </property>
     <property name="text">
      <string>Fork Bomb Network</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="fileNameLine">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>150</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
     </property>
    </widget>
   </widget>

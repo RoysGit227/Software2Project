@@ -26,7 +26,7 @@ public slots:
 
 private:
     Node ipTable[24];
-    bool filled[24] = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, };
+    bool filled[24];
     int size;
     friend class NetworkMain;
     friend class Attacker;

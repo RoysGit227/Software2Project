@@ -5,7 +5,7 @@ Router::Router(QObject *parent) : QObject(parent)
     for (int i = 0; i < 24; i++) {
         Node point(i);//Constructor with IP Address generation
         ipTable[i] = point;//Set IP Address' of table
-       // filled[i] = false;//Set all filled values to false
+        filled[i] = false;//Set all filled values to false
     }
 }
 

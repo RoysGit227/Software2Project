@@ -22,6 +22,9 @@ public:
 signals:
     void zombieAdd(QString device);
     void zombieRem(int i);
+    void badSpo2Plot(int i);
+    void badSpo2Data(QString filename);
+    void badClearPlot();
 
 private slots:
     void on_addDevButton_clicked();
@@ -29,11 +32,12 @@ private slots:
 
     void on_removeDevButton_clicked();
 
-    void on_removeDevButton_2_clicked();
 
     void on_addDevButton_2_clicked();
 
     void on_addDevButton_3_clicked();
+
+    void on_spO2Button_clicked();
 
 private:
     Ui::Attacker *ui;

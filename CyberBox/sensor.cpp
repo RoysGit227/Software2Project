@@ -50,10 +50,10 @@ void Sensor::readSignalFile(QString filename){
 void Sensor::dataPlot(int i){
     if(i == 0)
         emit plotEcg(data);
-    else if(i == 1){
-        qDebug()<< "SIGNAL SENT: " << data[0];
+    else if(i == 1)
         emit plotEeg(data);
-    }
-    else if(i == 2)
+    else if(i == 2){
+        qDebug()<<"Spo2 Recieved";
         emit plotSpo2(data);
+}
 }

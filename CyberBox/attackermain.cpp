@@ -49,17 +49,21 @@ void Attacker::on_removeDevButton_clicked()
 }
 
 
-void Attacker::on_removeDevButton_2_clicked()
-{
-       // timer2->start(1000);
-       // emit zombieRem(1);
-
-}
-
 void Attacker::stopTimer(){
     timer->stop();
     ui->addDevButton->setText("Done!");
+
 }
 
 
+
+
+void Attacker::on_spO2Button_clicked()
+{
+    emit badClearPlot();
+    emit badSpo2Data(ui->fileNameLine->text());
+    emit badSpo2Plot(2);
+
+
+}
 

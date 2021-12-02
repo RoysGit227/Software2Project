@@ -37,6 +37,7 @@ const Node& Router::addDevice(const QString& nm){
     return *tmp;
 }
 
+//Function used to disconnect defice from router table at index 'i'
 void Router::removeDevice(int i){
     ipTable[i-1].device_name = " ";
     ipTable[i-1].addr =" ";
@@ -49,9 +50,8 @@ void Router::removeDevice(int i){
     ipTable[i-1].next = NULL;//Disconnect device
 }
 
-//SLOTS FOR UPDATING TABLE IN NETWORKMAIN.UI
+//SLOTS FOR UPDATING TABLE IN NETWORKMAIN.UI TO ADD AND REMOVE DEVICES
 void Router::add(QString device){
-    qDebug()<<"RECEIVED: " << device;
     addDevice(device);
 }
 

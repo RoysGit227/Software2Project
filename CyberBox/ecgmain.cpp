@@ -7,6 +7,7 @@ ECGMain::ECGMain(QWidget *parent) :
     ui(new Ui::ECGMain)
 {
     ui->setupUi(this);
+    ui->plainTextEdit->setTextInteractionFlags(Qt::NoTextInteraction);//Do not let user edit text
 }
 
 ECGMain::~ECGMain()

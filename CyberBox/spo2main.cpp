@@ -7,7 +7,7 @@ SpO2Main::SpO2Main(QWidget *parent) :
     ui(new Ui::SpO2Main)
 {
     ui->setupUi(this);
-    ui->plainTextEdit->setTextInteractionFlags(Qt::NoTextInteraction);
+    ui->plainTextEdit->setTextInteractionFlags(Qt::NoTextInteraction);//Do not let user edit text
 }
 
 SpO2Main::~SpO2Main()
@@ -26,17 +26,16 @@ void SpO2Main::spO2Plot(double data[1000]){
     //Plot data in given axis range, pen color, and label names
     ui->plot1->addGraph();
     ui->plot1->graph(0)->setData(x, y);//Plot Data
-   // ui->plot1->clearPlottables();
 
     ui->plot1->replot();//Replot data after changing values (For Attacker)
     ui->plot1->xAxis->setRange(0,1000);
     ui->plot1->yAxis->setRange(75,110);
 
-    //ui->plot1->graph(0)->setPen(QPen("blue"));
+    ui->plot1->graph(0)->setPen(QPen("blue"));
     ui->plot1->xAxis->setLabel("t(ms)");
     ui->plot1->yAxis->setLabel("Percent Oxygen");
 }
+//SLOT That allows Attacker to clear plot
 void SpO2Main::clearSpo2(){
      ui->plot1->clearPlottables();
-     qDebug()<<"CLEARED";
 }

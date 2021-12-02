@@ -14,6 +14,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 #include <qcustomplot.h>
@@ -26,6 +27,7 @@ public:
     QWidget *centralwidget;
     QCustomPlot *plot1;
     QLabel *label_4;
+    QPlainTextEdit *plainTextEdit;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -43,6 +45,9 @@ public:
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(340, 0, 91, 16));
         label_4->setTextFormat(Qt::AutoText);
+        plainTextEdit = new QPlainTextEdit(centralwidget);
+        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
+        plainTextEdit->setGeometry(QRect(110, 340, 581, 71));
         SpO2Main->setCentralWidget(centralwidget);
         menubar = new QMenuBar(SpO2Main);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -61,6 +66,9 @@ public:
     {
         SpO2Main->setWindowTitle(QCoreApplication::translate("SpO2Main", "MainWindow", nullptr));
         label_4->setText(QCoreApplication::translate("SpO2Main", "<html><head/><body><p><span style=\" font-weight:792; font-style:italic;\">SPO2 Graph</span></p></body></html>", nullptr));
+        plainTextEdit->setPlainText(QCoreApplication::translate("SpO2Main", "SpO2, also known as oxygen saturation, is a measure of the amount of oxygen-carrying hemoglobin in the blood relative to the amount of hemoglobin not carrying oxygen.\n"
+"\n"
+"", nullptr));
     } // retranslateUi
 
 };

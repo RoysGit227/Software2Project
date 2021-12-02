@@ -7,6 +7,7 @@ EEGMain::EEGMain(QWidget *parent) :
     ui(new Ui::EEGMain)
 {
     ui->setupUi(this);
+    ui->plainTextEdit->setTextInteractionFlags(Qt::NoTextInteraction);//Do not let user edit text
 }
 
 EEGMain::~EEGMain()
@@ -16,7 +17,6 @@ EEGMain::~EEGMain()
 
 void EEGMain::eegPlot(double data1[1000]){
     //Compute 1000 Data points read from patient text file
-    qDebug()<< "SIGNAL REC: " << data1[0];
     QVector<double> x(1000), y(1000);
     for(int i = 0; i < 1000; i++){
         x[i] = i;

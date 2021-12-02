@@ -57,11 +57,8 @@ void Attacker::stopTimer(){
 
 void Attacker::on_spO2Button_clicked()
 {
-    qDebug()<<"Button Pressed";
     emit badClearPlot();
     emit badSpo2Data(ui->fileNameLine->text());
     emit badSpo2Plot(2);
-
-
 }
 

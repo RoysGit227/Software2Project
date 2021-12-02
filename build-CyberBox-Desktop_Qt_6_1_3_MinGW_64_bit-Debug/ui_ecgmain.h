@@ -14,6 +14,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 #include <qcustomplot.h>
@@ -26,6 +27,7 @@ public:
     QWidget *centralwidget;
     QLabel *label_4;
     QCustomPlot *plot1;
+    QPlainTextEdit *plainTextEdit;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -43,6 +45,9 @@ public:
         plot1 = new QCustomPlot(centralwidget);
         plot1->setObjectName(QString::fromUtf8("plot1"));
         plot1->setGeometry(QRect(100, 50, 581, 271));
+        plainTextEdit = new QPlainTextEdit(centralwidget);
+        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
+        plainTextEdit->setGeometry(QRect(80, 350, 581, 81));
         ECGMain->setCentralWidget(centralwidget);
         menubar = new QMenuBar(ECGMain);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -61,6 +66,8 @@ public:
     {
         ECGMain->setWindowTitle(QCoreApplication::translate("ECGMain", "MainWindow", nullptr));
         label_4->setText(QCoreApplication::translate("ECGMain", "<html><head/><body><p><span style=\" font-weight:792; font-style:italic;\">ECG Graph</span></p></body></html>", nullptr));
+        plainTextEdit->setPlainText(QCoreApplication::translate("ECGMain", "An ECG signal tracks heart rhythm and many cardiac diseases, such as poor blood flow to the heart and structural abnormalities. The action potential created by contractions of the heart wall spreads electrical currents from the heart throughout the body.\n"
+"", nullptr));
     } // retranslateUi
 
 };

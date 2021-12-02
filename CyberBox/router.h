@@ -11,17 +11,25 @@ class Router : public QObject
 
 public:
     Router(QObject *parent = nullptr);
+
     ~Router();
-    const QString& getIPAddress(int i) const;//Get IP Address at specified Index
-    const QString& getDeviceName(int i) const;//Get Device Name at specified Index
-    const Node& addDevice(const QString& nm);//Add Device to IP Address
-    void removeDevice(int i);//Remove Device from network
+
+    const QString& getIPAddress(int i) const;
+
+    const QString& getDeviceName(int i) const;
+
+    const Node& addDevice(const QString& nm);
+
+    void removeDevice(int i);
 
 signals:
     void change(QString device, QString address, int i, QString u);
+
     void full();
+
 public slots:
     void add(QString device);
+
     void remove(int i);
 
 private:

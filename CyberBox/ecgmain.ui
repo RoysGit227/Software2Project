@@ -40,6 +40,20 @@
      </rect>
     </property>
    </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>350</y>
+      <width>581</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="plainText">
+     <string>An ECG signal tracks heart rhythm and many cardiac diseases, such as poor blood flow to the heart and structural abnormalities. The action potential created by contractions of the heart wall spreads electrical currents from the heart throughout the body.
+</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

@@ -17,13 +17,20 @@ class Attacker : public QMainWindow
 
 public:
     explicit Attacker(QWidget *parent = nullptr);
+
     ~Attacker();
+
     void stopTimer();
+
 signals:
     void zombieAdd(QString device);
+
     void zombieRem(int i);
+
     void badSpo2Plot(int i);
+
     void badSpo2Data(QString filename);
+
     void badClearPlot();
 
 private slots:

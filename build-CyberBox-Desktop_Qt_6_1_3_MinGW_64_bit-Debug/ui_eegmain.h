@@ -14,6 +14,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 #include <qcustomplot.h>
@@ -26,6 +27,7 @@ public:
     QWidget *centralwidget;
     QCustomPlot *plot1;
     QLabel *label_4;
+    QPlainTextEdit *plainTextEdit;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -43,6 +45,9 @@ public:
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(340, 10, 91, 16));
         label_4->setTextFormat(Qt::AutoText);
+        plainTextEdit = new QPlainTextEdit(centralwidget);
+        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
+        plainTextEdit->setGeometry(QRect(110, 350, 581, 71));
         EEGMain->setCentralWidget(centralwidget);
         menubar = new QMenuBar(EEGMain);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -61,6 +66,7 @@ public:
     {
         EEGMain->setWindowTitle(QCoreApplication::translate("EEGMain", "MainWindow", nullptr));
         label_4->setText(QCoreApplication::translate("EEGMain", "<html><head/><body><p><span style=\" font-weight:792; font-style:italic;\">EEG Graph</span></p></body></html>", nullptr));
+        plainTextEdit->setPlainText(QCoreApplication::translate("EEGMain", "The electroencephalogram (EEG) is a recording of the electrical activity of the brain from the scalp. The recorded waveforms reflect the cortical electrical activity.", nullptr));
     } // retranslateUi
 
 };

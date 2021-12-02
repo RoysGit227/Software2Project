@@ -3,7 +3,7 @@
 #include <math.h>
 #include <QDebug>
 
-
+//Constructor initializes Network Traffic Graph and IP Table
 NetworkMain::NetworkMain(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::NetworkMain)
@@ -25,14 +25,13 @@ NetworkMain::~NetworkMain()
     ui->groupBox->setDisabled(false);
 }
 
-
+//Graphs network traffic based on number of devices connected
 void NetworkMain::usageGraph(int a){
     //Compute Data points
     QVector<double> x(100), y(100);
     for(int i = 0; i < 100; i++){
         x[i] = i;
         y[i] = a*log2(5*x[i]);
-        //qDebug()<<"SAT VAL: "<<y[i];
         if(y[i] > 100)
             ui->groupBox->setDisabled(true);
 
@@ -48,6 +47,7 @@ void NetworkMain::usageGraph(int a){
     ui->plot->yAxis->setLabel("Network Utilization (%)");
 }
 
+//Send signal to add data to IP Table in ROUTER.CPP
 void NetworkMain::on_addDevButton_clicked()
 {
     QString txt = ui->devNameLine->text();
@@ -60,7 +60,7 @@ void NetworkMain::on_addDevButton_clicked()
 }
 
 
-//SIGNALS SENT TO RETRIEVE DATA FROM ROUTER CLASS TO UPDATE UI
+//Send signal to remove data from IP Table in ROUTER.CPP
 void NetworkMain::on_removeDevButton_clicked()
 {
     ui->errorLabel->setVisible(false);
@@ -72,17 +72,17 @@ void NetworkMain::on_removeDevButton_clicked()
     usageGraph(numDev);//Replot Graph
 }
 
+//Denial of Service slot, Router is Saturated
 void NetworkMain::error(){
-    ui->errorLabel->setVisible(true);//Router is Saturated
+    ui->errorLabel->setVisible(true);
 }
 
+//Function to update table on NETWORKMAIN.UI with correcct components
 void NetworkMain::Update(QString device, QString address, int i, QString u){
     ui->tableWidget->setItem(i, 0, new QTableWidgetItem(device));//Router Device Names
     ui->tableWidget->setItem(i, 1, new QTableWidgetItem(address));//Router IP Addresses
 
     ui->plot->clearPlottables();//Clear graph data
-    numDev = (u.at(0)==QChar('a')) ? (numDev + 1):(numDev-1);
-    qDebug()<< "Updated: "<<QString::number(numDev);
-    qDebug()<< "Updated: "<<QString::number(i);
+    numDev = (u.at(0)==QChar('a')) ? (numDev + 1):(numDev-1);//Number of devices depending on if device was added or removed
     usageGraph(numDev);
 }

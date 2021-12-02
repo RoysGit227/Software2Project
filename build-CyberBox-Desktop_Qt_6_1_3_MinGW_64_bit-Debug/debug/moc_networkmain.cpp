@@ -24,8 +24,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_NetworkMain_t {
-    const uint offsetsAndSize[22];
-    char stringdata0[108];
+    const uint offsetsAndSize[24];
+    char stringdata0[110];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_NetworkMain_t, stringdata0) + ofs), len 
@@ -39,13 +39,14 @@ QT_MOC_LITERAL(27, 6), // "remDev"
 QT_MOC_LITERAL(34, 1), // "i"
 QT_MOC_LITERAL(36, 6), // "Update"
 QT_MOC_LITERAL(43, 7), // "address"
-QT_MOC_LITERAL(51, 5), // "error"
-QT_MOC_LITERAL(57, 23), // "on_addDevButton_clicked"
-QT_MOC_LITERAL(81, 26) // "on_removeDevButton_clicked"
+QT_MOC_LITERAL(51, 1), // "u"
+QT_MOC_LITERAL(53, 5), // "error"
+QT_MOC_LITERAL(59, 23), // "on_addDevButton_clicked"
+QT_MOC_LITERAL(83, 26) // "on_removeDevButton_clicked"
 
     },
     "NetworkMain\0addDev\0\0device\0remDev\0i\0"
-    "Update\0address\0error\0on_addDevButton_clicked\0"
+    "Update\0address\0u\0error\0on_addDevButton_clicked\0"
     "on_removeDevButton_clicked"
 };
 #undef QT_MOC_LITERAL
@@ -68,17 +69,17 @@ static const uint qt_meta_data_NetworkMain[] = {
        4,    1,   53,    2, 0x06,    2 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       6,    3,   56,    2, 0x0a,    4 /* Public */,
-       8,    0,   63,    2, 0x0a,    8 /* Public */,
-       9,    0,   64,    2, 0x08,    9 /* Private */,
-      10,    0,   65,    2, 0x08,   10 /* Private */,
+       6,    4,   56,    2, 0x0a,    4 /* Public */,
+       9,    0,   65,    2, 0x0a,    9 /* Public */,
+      10,    0,   66,    2, 0x08,   10 /* Private */,
+      11,    0,   67,    2, 0x08,   11 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    3,
     QMetaType::Void, QMetaType::Int,    5,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::Int,    3,    7,    5,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::Int, QMetaType::QString,    3,    7,    5,    8,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -94,7 +95,7 @@ void NetworkMain::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         switch (_id) {
         case 0: _t->addDev((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 1: _t->remDev((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 2: _t->Update((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
+        case 2: _t->Update((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< QString(*)>(_a[4]))); break;
         case 3: _t->error(); break;
         case 4: _t->on_addDevButton_clicked(); break;
         case 5: _t->on_removeDevButton_clicked(); break;
@@ -127,7 +128,7 @@ const QMetaObject NetworkMain::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_NetworkMain_t
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,

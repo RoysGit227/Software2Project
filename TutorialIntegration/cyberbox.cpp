@@ -9,7 +9,6 @@
 #include "eegmain.h"
 #include "spo2main.h"
 #include "router.h"
-#include "confidentiality.h"
 
 
 CyberBox::CyberBox(QWidget *parent)
@@ -17,38 +16,33 @@ CyberBox::CyberBox(QWidget *parent)
     , ui(new Ui::CyberBox)
 {
     ui->setupUi(this);
-    QPixmap pix("/Users/salvadorvalenzuela/Documents/Software2Project/CyberBox/WebPics/b01-raspi4-start.jpeg");
+    QPixmap pix("C:/Users/Owner/Documents/Software2Project-main/CyberBox/WebPics/b01-raspi4-start.jpeg");
     ui->labelAttacker->setPixmap(pix.scaled(201,131,Qt::KeepAspectRatio));
 
-    QPixmap pix1("/Users/salvadorvalenzuela/Documents/Software2Project/CyberBox/WebPics/b01-raspi4-start.jpeg");
+    QPixmap pix1("C:/Users/Owner/Documents/Software2Project-main/CyberBox/WebPics/b01-raspi4-start.jpeg");
     ui->labelMain->setPixmap(pix1.scaled(201,131,Qt::KeepAspectRatio));
 
-    QPixmap pix2("/Users/salvadorvalenzuela/Documents/Software2Project/CyberBox/WebPics/Netgear-GS108-8-Port-Switch");
+    QPixmap pix2("C:/Users/Owner/Documents/Software2Project-main/CyberBox/WebPics/Netgear-GS108-8-Port-Switch.jpeg");
     ui->labelSwitch->setPixmap(pix2.scaled(251,151,Qt::KeepAspectRatio));
 
-    QPixmap pix3("/Users/salvadorvalenzuela/Documents/Software2Project/CyberBox/WebPics/RaspberryPi.jpeg");
+    QPixmap pix3("C:/Users/Owner/Documents/Software2Project-main/CyberBox/WebPics/RaspberryPi.jpeg");
     ui->labelSN1->setPixmap(pix3.scaled(121,91,Qt::KeepAspectRatio));
 
-    QPixmap pix4("/Users/salvadorvalenzuela/Documents/Software2Project/CyberBox/WebPics/RaspberryPi.jpeg");
+    QPixmap pix4("C:/Users/Owner/Documents/Software2Project-main/CyberBox/WebPics/RaspberryPi.jpeg");
     ui->labelSN2->setPixmap(pix4.scaled(121,91,Qt::KeepAspectRatio));
 
-    QPixmap pix5("/Users/salvadorvalenzuela/Documents/Software2Project/CyberBox/WebPics/RaspberryPi.jpeg");
+    QPixmap pix5("C:/Users/Owner/Documents/Software2Project-main/CyberBox/WebPics/RaspberryPi.jpeg");
     ui->labelSN3->setPixmap(pix5.scaled(121,91,Qt::KeepAspectRatio));
 
-    QPixmap pix6("/Users/salvadorvalenzuela/Documents/Software2Project/CyberBox/WebPics/BITalino.jpg");
+    QPixmap pix6("C:/Users/Owner/Documents/Software2Project-main/CyberBox/WebPics/BITalino.jpg");
     ui->labelBIT1->setPixmap(pix6.scaled(121,191,Qt::KeepAspectRatio));
 
-    QPixmap pix7("/Users/salvadorvalenzuela/Documents/Software2Project/CyberBox/WebPics/BITalino.jpg");
+    QPixmap pix7("C:/Users/Owner/Documents/Software2Project-main/CyberBox/WebPics/BITalino.jpg");
     ui->labelBIT2->setPixmap(pix7.scaled(121,191,Qt::KeepAspectRatio));
 
-    QPixmap pix8("/Users/salvadorvalenzuela/Documents/Software2Project/CyberBox/WebPics/BITalino.jpg");
+    QPixmap pix8("C:/Users/Owner/Documents/Software2Project-main/CyberBox/WebPics/BITalino.jpg");
     ui->labelBIT3->setPixmap(pix8.scaled(121,191,Qt::KeepAspectRatio));
 
-    Router netWork;
-
-    connect(&netWork, SIGNAL(Added(QString,QString,int)), nw2, SLOT(Update(QString,QString,int)));
-
-    netWork.addDevice(QString("Main Computer"));
 }
 
 CyberBox::~CyberBox()
@@ -80,7 +74,6 @@ void CyberBox::on_pushButtonNetwork_clicked()
 void CyberBox::on_pushButtonECG_clicked()
 {
     nw3->show();
-
 }
 
 
@@ -94,3 +87,4 @@ void CyberBox::on_pushButtonSpO2_clicked()
 {
     nw5->show();
 }
+

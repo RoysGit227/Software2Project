@@ -12,7 +12,11 @@ private:
     QString addr;
     QString device_name;
     Node* next;
+    int idx;
     friend class Router;
+    friend class NetworkMain;
+    friend class RaspberryPi;
+    friend class Attacker;
 };
 
 #endif // NODE_H

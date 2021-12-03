@@ -15,15 +15,21 @@ public:
     const QString& getIPAddress(int i) const;//Get IP Address at specified Index
     const QString& getDeviceName(int i) const;//Get Device Name at specified Index
     const Node& addDevice(const QString& nm);//Add Device to IP Address
-    const Node& removeDevice(Node& tmp);//Remove Device from network
+    void removeDevice(int i);//Remove Device from network
+
 signals:
-    void Added(QString device, QString address, int i);
+    void change(QString device, QString address, int i, QString u);
+    void full();
+public slots:
+    void add(QString device);
+    void remove(int i);
+
 private:
-    Node ipTable[5];
-    bool filled[5] = {false,false,false,false,false};
+    Node ipTable[24];
+    bool filled[24];
     int size;
     friend class NetworkMain;
-
+    friend class Attacker;
 
 };
 

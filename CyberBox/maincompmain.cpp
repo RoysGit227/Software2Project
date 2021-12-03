@@ -147,11 +147,11 @@ void MainCompMain::on_TypeComboBox_currentTextChanged(const QString &arg1)
         ui->plainTextEdit_plain->setVisible(true);
         ui->plainTextEdit_encrypted->setVisible(true);
     }
-    else if(arg1 == "Image Encryption")
+    else if(arg1 == "Text File Encryption")
     {
         ui->stackedWidget->setCurrentIndex(3);
-        ui->label->setVisible(false);
-        ui->label_2->setVisible(false);
+        ui->label->setVisible(true);
+        ui->label_2->setVisible(true);
         ui->plainTextEdit_plain->setVisible(true);
         ui->plainTextEdit_encrypted->setVisible(true);
     }
@@ -658,18 +658,7 @@ QString MainCompMain::TextFileE(QString plainText, int key){
         {
             result += ' ';
         }
-        else if(std::isdigit(plainStdText[i])){
-                result += char(int(plainStdText[i]+key));
-        }
-        //Else there is a letter and we encrypt using the cypher formula
-        else if(std::isalpha(plainStdText[i]))
-        {
-            // apply transformation to each character
-            // Encrypt Uppercase letter
-            if (std::isupper(plainStdText[i]))
-                result += char(int(plainStdText[i]+key));
-            //Encrypt Lowercase letter
-            else
+            else{
                 result += char(int(plainStdText[i]+key));
         }
     }
@@ -690,16 +679,8 @@ QString MainCompMain::TextFileD(QString encryptedText, int key){
         {
             result += ' ';
         }
-        else if(std::isdigit(encryptedStdText[i])){
-                result += char(int(encryptedStdText[i]-key));
-        }
-        {
-            // apply transformation to each character
-            // Encrypt Uppercase letter
-            if (std::isupper(encryptedStdText[i]))
-                result += char(int(encryptedStdText[i]-key));
-            //Encrypt Lowercase letter
-            else
+
+            else{
                 result += char(int(encryptedStdText[i]-key));
         }
     }

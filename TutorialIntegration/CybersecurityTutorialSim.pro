@@ -76,4 +76,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    ../../Downloads/DDosTest/DDosTest/Resources.qrc
+
+    ../../Users/Owner/Documents/Software2Project-main/TutorialIntegration/Resources.qrc

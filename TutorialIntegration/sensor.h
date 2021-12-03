@@ -10,9 +10,12 @@ public:
     explicit Sensor(QObject *parent = nullptr);
     void setData(double d);
     double getData(int i)const;
+    double data[1000];
+public slots:
     void dataPlot(int i);
     void readSignalFile(QString filename);
-    double data[1000];
+
+
 
 signals:
    void plotEcg(double*);
